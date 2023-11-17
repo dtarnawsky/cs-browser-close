@@ -65,7 +65,7 @@
     "ts-node": "~8.3.0",
     "typescript": "~5.2.2"
   },
-  "description": "An Ionic project",
+  "description": "This shows the use of `open` and `close` methods of `@capacitor/browser` plugin.",
   "browserslist": [
     "Chrome >=79",
     "ChromeAndroid >=79",
