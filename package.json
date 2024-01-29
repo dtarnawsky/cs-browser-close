@@ -9,7 +9,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "prettify": "prettier \"**/*.{ts,html}\" --write",
+    "prepare": "husky install"
   },
   "private": true,
   "dependencies": {
@@ -20,13 +22,14 @@
     "@angular/platform-browser-dynamic": "^17.0.3",
     "@angular/router": "^17.0.3",
     "@capacitor/android": "5.5.1",
-    "@capacitor/app": "5.0.6",
-    "@capacitor/browser": "5.1.0",
+    "@capacitor/app": "5.0.7",
+    "@capacitor/browser": "5.2.0",
     "@capacitor/core": "5.5.1",
-    "@capacitor/haptics": "5.0.6",
+    "@capacitor/haptics": "5.0.7",
     "@capacitor/ios": "5.5.1",
-    "@capacitor/keyboard": "5.0.6",
-    "@capacitor/status-bar": "5.0.6",
+    "@capacitor/keyboard": "5.0.8",
+    "@capacitor/screen-orientation": "5.0.7",
+    "@capacitor/status-bar": "5.0.7",
     "@ionic/angular": "7.5.5",
     "ionicons": "^7.0.0",
     "rxjs": "~7.5.0",
@@ -54,6 +57,7 @@
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsdoc": "30.7.6",
     "eslint-plugin-prefer-arrow": "1.2.2",
+    "husky": "8.0.3",
     "jasmine-core": "~4.3.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~6.4.0",
@@ -62,6 +66,8 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.0.0",
+    "lint-staged": "15.1.0",
+    "prettier": "3.1.0",
     "ts-node": "~8.3.0",
     "typescript": "~5.2.2"
   },
@@ -73,5 +79,18 @@
     "Edge >=79",
     "Safari >=14",
     "iOS >=14"
-  ]
+  ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "npx lint-staged && npm run lint"
+    }
+  },
+  "lint-staged": {
+    "*.{css,html,js,jsx,scss,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{md,json}": [
+      "prettier --write"
+    ]
+  }
 }

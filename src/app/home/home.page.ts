@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-
 import { Browser } from '@capacitor/browser';
-
+//import { ScreenOrientation } from '@capacitor/screen-orientation';
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -12,7 +11,9 @@ import { Browser } from '@capacitor/browser';
 })
 export class HomePage implements OnInit {
   count = 0;
-  constructor() { }
+  constructor() {
+    //ScreenOrientation.lock();
+  }
 
   async openSite() {
     await Browser.open({ url: 'http://capacitorjs.com/' });
@@ -28,7 +29,6 @@ export class HomePage implements OnInit {
         await Browser.close();
       } catch (err) {
         alert(err);
-
       }
     }, 6000);
   }

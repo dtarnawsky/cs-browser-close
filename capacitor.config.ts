@@ -5,8 +5,8 @@ const config: CapacitorConfig = {
   appName: 'cs-browser-close',
   webDir: 'www/browser',
   server: {
-    androidScheme: 'https'
-  }
+    androidScheme: 'https',
+  },
 };
 
 export default config;
